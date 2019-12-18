@@ -1,0 +1,23 @@
+<h1 class="text-4xl">List Articles</h1>
+
+<% if session[:userinfo] %>
+    <%= link_to 'New article', new_article_path, class: "text-blue-600 underline" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+        <td><%= link_to article.title, article_path(article) %></td>
+        <td><%= article.text %></td>
+        <% if session[:userinfo] %>
+            <td><%= link_to 'Edit', edit_article_path(article), class: "text-blue-600 underline" %></td>
+        <% end %>
+    </tr>
+  <% end %>
+</table>

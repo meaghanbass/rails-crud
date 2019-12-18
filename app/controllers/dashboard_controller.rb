@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
- include Secured
+  include Secured
 
   def show
   end

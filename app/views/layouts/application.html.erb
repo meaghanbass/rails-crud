@@ -28,7 +28,14 @@
           <ul class="nav navbar-nav">
             <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
             <li class="<%= 'active' if params[:controller] == 'dashboard' %>"><a href="/dashboard">My Dashboard</a></li>
+            <li class="<%= 'active' %>"><a href="/articles">Articles</a></li>
+            <li class="btn-success"><a href="/articles/new">Create New +</a></li>
           </ul>
+          <% if session[:userinfo].nil? %>
+            <ul class="nav navbar-nav navbar-right">
+              <%= button_to 'Login', 'auth/auth0', method: :post, class: 'active', id: 'qsLoginBtn' %>
+            </ul>
+          <% end %>
           <% if session[:userinfo] %>
             <ul class="nav navbar-nav navbar-right">
               <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" href="/logout">Logout</a></li>
@@ -42,3 +49,5 @@
   </div>
 </body>
 </html>
+
+
