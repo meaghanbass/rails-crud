@@ -5,6 +5,10 @@
         <%= @article.title %>
     </h1>
 
+    <p>
+        <b>Created On: </b><%= @article.created_at.strftime("%B %d %Y, %l:%M%P") %> EST
+    </p>
+
     <p class="my-16">
         <%= @article.text %>
     </p>

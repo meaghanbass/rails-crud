@@ -6,9 +6,9 @@
     </div>
 <% end %>
 
-<table id="railtable" class="w-1/2 m-auto mt-12 bg-white shadow rounded">
+<table id="railtable" class="w-full m-auto mt-12 rounded">
     <% @articles.each do |article| %>
-        <tr class="hover:bg-purple-100 flex flex-row">
+        <tr class="hover:bg-purple-100 flex flex-row bg-white shadow">
             <td class="w-4/6"><%= link_to article.title, article_path(article), class: "hover:bg-purple-100 flex flex-row" %></td>
                 
             <% if session[:userinfo] %>
@@ -25,6 +25,6 @@
             <% end %>
                 
         </tr>
-        <%#-  <tr class="h-6"></tr> -%>
+        <tr class="h-2"></tr>
     <% end %>
 </table>
