@@ -1,27 +1,29 @@
-<h1 class="text-4xl">List Articles</h1>
+<h1 class="text-4xl text-center">List Articles</h1>
 
 <% if session[:userinfo] %>
-    <%= link_to 'New article', new_article_path, class: "text-blue-600 underline" %>
+    <div class="text-center">
+        <button class="bg-gray-500 hover:bg-gray-700 text-white m-4 font-bold py-4 px-8 rounded">
+            <%= link_to 'New article', new_article_path, class: "hover:text-white hover:no-underline" %>
+        </button>
+    </div>
 <% end %>
 
-<table>
+<table id="railtable" class="w-1/2 m-auto">
     <tr>
         <th>Title</th>
-        <th>Text</th>
         <th></th>
     </tr>
 
     <% @articles.each do |article| %>
         <tr>
             <td><%= link_to article.title, article_path(article) %></td>
-            <td><%= article.text %></td>
             <% if session[:userinfo] %>
                 <td><%= link_to 'Edit', edit_article_path(article), class: "text-blue-600 underline" %></td>
             <% end %>
             <% if session[:userinfo] %>
             <td><%= link_to 'Destroy', article_path(article),
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
+                data: { confirm: 'Are you sure?' }, class: "text-blue-600 underline" %></td>
             <% end %>
         </tr>
     <% end %>

@@ -1,0 +1,17 @@
+/* Put application styles here */
+
+.custom-form {
+    /* background: pink; */
+    width: 600px;
+    margin: auto;
+}
+.custom-form form {
+    margin-bottom: 50px;
+}
+.custom-form form input[type="submit"] {
+    background: transparent;
+}
+.custom-form input, .custom-form textarea {
+    width: 100%;
+
+}

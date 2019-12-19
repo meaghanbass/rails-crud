@@ -1,25 +1,34 @@
 <% if session[:userinfo] %>
-    <h1>New Article</h1>
-    <%= form_with scope: :article, url: articles_path, local: true do |form| %>
+    <h1 class="text-center text-5xl font-thin">New Article</h1>
+    <div class="custom-form">
+        <%= form_with scope: :article, url: articles_path, local: true do |form| %>
 
-        <p>
-        <%= form.label :title %><br>
-        <%= form.text_field :title %>
-        </p>
-    
-        <p>
-        <%= form.label :text %><br>
-        <%= form.text_area :text %>
-        </p>
-    
-        <p>
-        <%= form.submit %>
-        </p>
-    <% end %>
+            <p>
+            <%= form.label :title %><br>
+            <%= form.text_field :title %>
+            </p>
+        
+            <p>
+            <%= form.label :text %><br>
+            <%= form.text_area :text %>
+            </p>
+        
+            <p>
+            <%= form.submit %>
+            </p>
+        <% end %>
+    </div>
 <% end %>
 
 <% if session[:userinfo].nil? %>
-    <section class="jumbotron  text-center">
+    <div class="bg-indigo-900 text-center py-4 lg:px-4">
+        <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+            <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Alert</span>
+            <span class="font-semibold mr-2 text-left flex-auto">You must log in to create a new article.</span>
+        </div>
+    </div>
+
+    <section class="jumbotron text-center">
         <p>You must log in to create a new article.</p>
     </section>
 <% end %>
