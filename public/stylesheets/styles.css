@@ -1,16 +1,69 @@
 /* Put application styles here */
+.body {
+    background: #F9F9F9;
+}
+
+.thumbnail {
+    width: 50px;
+    margin: auto;
+    margin-bottom: 0 !important;
+}
+
+#railtable tr {
+    margin: 0px;
+}
+
+#railtable tr td {
+    padding: 20px;
+}
 
 .custom-form {
-    /* background: pink; */
-    width: 600px;
-    margin: auto;
+    background: white;
+    width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 .custom-form form {
     margin-bottom: 50px;
 }
-.custom-form form input[type="submit"] {
-    background: transparent;
+.custom-form label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* text-transform: uppercase; */
+    letter-spacing: 0.1rem;
+    color: #3B4F5F;
 }
+.custom-form label::after {
+    content: '*';
+    /* color: red; */
+    margin-left: 5px;
+}
+.custom-form input {
+    
+}
+.custom-form input[type="text"], .custom-form textarea {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.custom-form input[type="text"]:focus, .custom-form textarea:focus {
+    box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.18);
+    background: rgba(0, 0, 0, 0.01);
+}
+.custom-form textarea {
+    height: 500px;
+}
+/* .custom-form form input[type="submit"] {
+    background: transparent;
+    width: 200px;
+    margin: auto;
+    padding: 7px;
+    background: #8F86F2;
+    color: white;
+    border-radius: 5px;
+} */
 .custom-form input, .custom-form textarea {
     width: 100%;
 

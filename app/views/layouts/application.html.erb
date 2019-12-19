@@ -15,16 +15,16 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body class="bg-gray-300">
+<body class="body">
 
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-static-top border-b-1 border-gray-400 p-8 w-4/5 m-auto mb-8">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <button type="button" class="navbar-toggle collapsed border-solid border-2 border-purple-500" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="icon-bar bg-purple-500"></span>
+            <span class="icon-bar bg-purple-500"></span>
+            <span class="icon-bar bg-purple-500"></span>
           </button>
           <a class="navbar-brand" href="/">My Application</a>
         </div>
@@ -33,21 +33,20 @@
             <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
             <li class="<%= 'active' if params[:controller] == 'dashboard' %>"><a href="/dashboard">My Dashboard</a></li>
             <li class="<%= 'active' if params[:controller] == 'articles' %>"><a href="/articles">Articles</a></li>
-                                <%-# <li class="bg-blue-300"><a class="text-white" href="/articles/new">Create New +</a></li> -%>
             <a class="text-white mx-2" href="/articles/new">
-              <li class="flex justify-center"><button class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-4 px-8 rounded">Create New +</button></li>
+              <li class="flex justify-center"><button class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded flex items-center">Create New <ion-icon name="add" class="ml-8 text-3xl"></ion-icon></button></li>
             </a>
           </ul>
           
           <% if session[:userinfo].nil? %>
             <ul class="nav navbar-nav navbar-right flex h-20 items-center">
-              <li><%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent', id: 'qsLoginBtn' %></li>
+              <li><%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent border-solid border-2 border-purple-500 rounded py-4 px-8', id: 'qsLoginBtn' %></li>
             </ul>
           <% end %>
           
           <% if session[:userinfo] %>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" href="/logout">Logout</a></li>
+            <ul class="nav navbar-right flex flex-row items-center">
+              <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" class="bg-transparent border-solid border-2 border-purple-500 rounded" href="/logout">Logout</a></li>
             </ul>
           <% end %>
         </div>
@@ -56,6 +55,7 @@
   <div class="container">
     <%= yield %>
   </div>
+  <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
 

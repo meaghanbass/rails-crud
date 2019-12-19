@@ -1,30 +1,30 @@
-<h1 class="text-4xl text-center">List Articles</h1>
+<h1 class="text-4xl text-center mb-10">List Articles</h1>
 
 <% if session[:userinfo] %>
     <div class="text-center">
-        <button class="bg-gray-500 hover:bg-gray-700 text-white m-4 font-bold py-4 px-8 rounded">
-            <%= link_to 'New article', new_article_path, class: "hover:text-white hover:no-underline" %>
-        </button>
+        <%= link_to 'New article', new_article_path, class: "hover:text-white hover:no-underline hover:text-white hover:no-underline bg-purple-500 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded" %>
     </div>
 <% end %>
 
-<table id="railtable" class="w-1/2 m-auto">
-    <tr>
-        <th>Title</th>
-        <th></th>
-    </tr>
-
+<table id="railtable" class="w-1/2 m-auto mt-12 bg-white shadow rounded">
     <% @articles.each do |article| %>
-        <tr>
-            <td><%= link_to article.title, article_path(article) %></td>
+        <tr class="hover:bg-purple-100 flex flex-row">
+            <td class="w-4/6"><%= link_to article.title, article_path(article), class: "hover:bg-purple-100 flex flex-row" %></td>
+                
             <% if session[:userinfo] %>
-                <td><%= link_to 'Edit', edit_article_path(article), class: "text-blue-600 underline" %></td>
+                <td class="w-1/6 flex items-center"><%= link_to 'Edit', edit_article_path(article), class: "text-purple-600 font-bold mr-2" %><ion-icon name="create" class="text-gray-600 text-3xl"></ion-icon></td>
             <% end %>
+            
             <% if session[:userinfo] %>
-            <td><%= link_to 'Destroy', article_path(article),
-                method: :delete,
-                data: { confirm: 'Are you sure?' }, class: "text-blue-600 underline" %></td>
+                <td class="w-1/6 flex items-center">
+                    <%= button_to 'Delete', article_path(article),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' }, class: "bg-transparent text-purple-600 font-bold mr-2" %><ion-icon name="trash" class="text-gray-600 text-3xl">
+                    </ion-icon>
+                </td>
             <% end %>
+                
         </tr>
+        <%#-  <tr class="h-6"></tr> -%>
     <% end %>
 </table>

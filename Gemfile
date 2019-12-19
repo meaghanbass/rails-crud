@@ -19,6 +19,10 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Gemfile
 gem 'webpacker', '~> 4.x'
 
+group :assets do
+  gem 'jquery-rails'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
