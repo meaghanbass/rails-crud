@@ -9,12 +9,21 @@
     margin-bottom: 0 !important;
 }
 
+a:focus {
+    outline: none !important;
+}
+
 #railtable tr {
     margin: 0px;
+    border-top-width: 1px;
 }
 
 #railtable tr td {
-    padding: 20px;
+    padding: 10px;
+}
+
+#railtable tr:last-of-type {
+    border-bottom-width: 1px;
 }
 
 .custom-form {
@@ -42,7 +51,7 @@
 .custom-form input {
     
 }
-.custom-form input[type="text"], .custom-form textarea {
+.custom-form input[type="text"], .custom-form textarea, .tox {
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
     padding: 10px;
     border-radius: 5px;

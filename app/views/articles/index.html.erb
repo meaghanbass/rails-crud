@@ -1,32 +1,34 @@
 <h1 class="text-4xl text-center mb-10">List Articles</h1>
 
 <% if session[:userinfo] %>
-    <div class="text-center">
+    <div class="text-right">
         <%= link_to 'New article', new_article_path, class: "hover:text-white hover:no-underline hover:text-white hover:no-underline bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded" %>
     </div>
 <% end %>
 
-<table id="railtable" class="w-full m-auto mt-12 rounded">
-    <% @articles.each do |article| %>
-        <tr class="hover:bg-indigo-100 flex flex-row bg-white shadow">
-            <td class="w-3/6"><%= link_to article.title, article_path(article), class: "hover:bg-indigo-100 flex flex-row" %></td>
+<section class="jumbotron bg-white shadow mt-12">
+    <table id="railtable" class="w-full m-auto rounded">
+        <% @articles.each do |article| %>
+            <tr class="flex flex-row bg-transparent hover:bg-gray-100 hover:opacity-100 border-gray-300">
+                <td class="w-3/6"><%= link_to article.title, article_path(article), class: "flex flex-row hover:no-underline hover:text-black" %></td>
 
-            <td class="w-1/6"><button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full"><%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full">') %></td>
+                <td class="w-1/6"><button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full"><%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full">') %></td>
+                    
+                <% if session[:userinfo] %>
+                    <td class="w-1/6 flex items-center justify-end"><%= link_to 'Edit', edit_article_path(article), class: "text-indigo-600 font-bold mr-2" %><ion-icon name="create" class="text-gray-600 text-3xl"></ion-icon></td>
+                <% end %>
                 
-            <% if session[:userinfo] %>
-                <td class="w-1/6 flex items-center justify-end"><%= link_to 'Edit', edit_article_path(article), class: "text-indigo-600 font-bold mr-2" %><ion-icon name="create" class="text-gray-600 text-3xl"></ion-icon></td>
-            <% end %>
+                <% if session[:userinfo] %>
+                    <td class="w-1/6 flex items-center">
+                        <%= button_to 'Delete', article_path(article),
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' }, class: "bg-transparent text-indigo-600 font-bold mr-2" %><ion-icon name="trash" class="text-gray-600 text-3xl">
+                        </ion-icon>
+                    </td>
+                <% end %>
+                    
+            </tr>
             
-            <% if session[:userinfo] %>
-                <td class="w-1/6 flex items-center">
-                    <%= button_to 'Delete', article_path(article),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' }, class: "bg-transparent text-indigo-600 font-bold mr-2" %><ion-icon name="trash" class="text-gray-600 text-3xl">
-                    </ion-icon>
-                </td>
-            <% end %>
-                
-        </tr>
-        <tr class="h-2"></tr>
-    <% end %>
-</table>
+        <% end %>
+    </table>
+</section>

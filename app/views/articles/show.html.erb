@@ -5,6 +5,10 @@
         <%= @article.title %>
     </h1>
 
+    <% if session[:userinfo] %>
+        <td class="w-1/6 flex items-center justify-end"><%= link_to 'Edit', edit_article_path(@article), class: "text-indigo-600 font-bold mr-2" %></td>
+    <% end %>
+
     <p>
         <b>Created On: </b><%= @article.created_at.strftime("%B %d %Y, %l:%M%P") %> EST
     </p>
@@ -16,6 +20,6 @@
     <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full"><%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full">') %></button>
 
     <p class="my-16">
-        <%= @article.text %>
+        <%= raw @article.text %>
     </p>
 </div>
