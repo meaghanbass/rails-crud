@@ -1,4 +1,4 @@
-<%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-purple-500 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded' %>
+<%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded' %>
 
 <div class="w-1/2 m-auto mt-10">
     <h1 class="text-center text-5xl font-thin m-10">
@@ -8,6 +8,12 @@
     <p>
         <b>Created On: </b><%= @article.created_at.strftime("%B %d %Y, %l:%M%P") %> EST
     </p>
+
+    <p>
+        <b>Tags: </b><%= @article.tag_list %>
+    </p>
+
+    <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full"><%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full">') %></button>
 
     <p class="my-16">
         <%= @article.text %>

@@ -19,6 +19,8 @@ gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Gemfile
 gem 'webpacker', '~> 4.x'
 
+gem 'acts-as-taggable-on', '~> 6.0'
+
 group :assets do
   gem 'jquery-rails'
 end
