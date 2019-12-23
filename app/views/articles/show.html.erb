@@ -1,23 +1,19 @@
-<%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded' %>
+<%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-dk-blue hover:bg-indigo-700 text-white font-bold py-4 px-8' %>
 
-<div class="w-1/2 m-auto mt-10">
-    <h1 class="text-center text-5xl font-thin m-10">
+<div class="w-1/2 m-auto mt-10 tags">
+    <h1 class="article-title text-center h1-bg">
         <%= @article.title %>
     </h1>
 
     <% if session[:userinfo] %>
-        <td class="w-1/6 flex items-center justify-end"><%= link_to 'Edit', edit_article_path(@article), class: "text-indigo-600 font-bold mr-2" %></td>
+        <td class="w-1/6 flex items-center justify-end"><%= link_to 'Edit', edit_article_path(@article), class: "text-dk-blue font-bold mr-2" %><ion-icon name="create" class="text-gray-600 text-3xl"></ion-icon></td>
     <% end %>
 
     <p>
-        <b>Created On: </b><%= @article.created_at.strftime("%B %d %Y, %l:%M%P") %> EST
+        <b>Published: </b><%= @article.created_at.strftime("%B %d %Y, %l:%M%P") %> EST
     </p>
 
-    <p>
-        <b>Tags: </b><%= @article.tag_list %>
-    </p>
-
-    <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full"><%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="bg-indigo-300 hover:bg-indigo-500 text-white hover:text-white hover:no-underline font-bold py-1 px-4 rounded-full">') %></button>
+    <button class="text-black bg-white hover:no-underline py-1 px-4 rounded-full"><%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join('</button> <button class="text-black bg-white hover:no-underline py-1 px-4 rounded-full">') %></button>
 
     <p class="my-16">
         <%= raw @article.text %>

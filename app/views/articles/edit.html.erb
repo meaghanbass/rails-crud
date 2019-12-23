@@ -1,8 +1,8 @@
 <% if session[:userinfo] %>
 
-  <%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded' %>
+  <%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-dk-blue hover:bg-indigo-700 text-white font-bold py-4 px-8' %>
 
-  <h1 class="text-center text-5xl font-thin">Edit Article</h1>
+  <h1 class="text-center h1-bg">Edit Article</h1>
 
   <div class="custom-form rounded-lg">
     <%= render 'form' %>

@@ -19,8 +19,8 @@
 </head>
 <body class="body">
 
-    <nav class="navbar navbar-static-top border-b-1 border-gray-400 p-8 w-4/5 m-auto mb-8">
-      <div class="container">
+    <nav class="navbar bg-dk-blue navbar-static-top border-b-1 border-gray-400 p-8 m-auto mb-8">
+      <div class="container w-4/5">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed border-solid border-2 border-indigo-500" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
@@ -36,24 +36,25 @@
             <li class="<%= 'active' if params[:controller] == 'dashboard' %>"><a href="/dashboard">My Dashboard</a></li>
             <li class="<%= 'active' if params[:controller] == 'articles' %>"><a href="/articles">Articles</a></li>
             <a class="text-white mx-2" href="/articles/new">
-              <li class="flex justify-center"><button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded flex items-center">Create New <ion-icon name="add" class="ml-8 text-3xl"></ion-icon></button></li>
+              <li class="flex justify-center"><button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 flex items-center">Create New <ion-icon name="add" class="ml-8 text-3xl"></ion-icon></button></li>
             </a>
           </ul>
           
           <% if session[:userinfo].nil? %>
             <ul class="nav navbar-nav navbar-right flex h-20 items-center">
-              <li><%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent border-solid border-2 border-indigo-500 rounded py-4 px-8', id: 'qsLoginBtn' %></li>
+              <li><%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent border-solid border-2 border-indigo-500 py-4 px-8', id: 'qsLoginBtn' %></li>
             </ul>
           <% end %>
           
           <% if session[:userinfo] %>
             <ul class="nav navbar-right flex flex-row items-center">
-              <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" class="bg-transparent border-solid border-2 border-indigo-500 rounded" href="/logout">Logout</a></li>
+              <li class="<%= 'active' if params[:controller] == 'logout' %>"><a id="qsLogoutBtn" class="bg-transparent border-solid border-2 border-white" href="/logout">Logout</a></li>
             </ul>
           <% end %>
         </div>
       </div>
     </nav>
+    
   <div class="container">
     <%= yield %>
   </div>

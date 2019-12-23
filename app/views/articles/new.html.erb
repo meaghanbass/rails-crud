@@ -1,8 +1,8 @@
 <% if session[:userinfo] %>
 
-    <%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded' %>
+    <%= link_to '<< Back to List', articles_path, class: 'hover:text-white hover:no-underline bg-dk-blue hover:bg-indigo-700 text-white font-bold py-4 px-8' %>
 
-    <h1 class="text-center text-5xl font-thin">New Article</h1>
+    <h1 class="text-center h1-bg">New Article</h1>
     <div class="custom-form">
         <%= render 'form' %>
     </div>
@@ -11,13 +11,13 @@
 <% if session[:userinfo].nil? %>
     <div class="bg-indigo-900 text-center py-4 lg:px-4">
         <div class="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-            <span class="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-xs font-bold mr-3">Alert</span>
+            <span class="flex rounded-full bg-dk-blue uppercase px-2 py-1 text-xs font-bold mr-3">Alert</span>
             <span class="font-semibold mr-2 text-left flex-auto">You must log in to create a new article.</span>
         </div>
     </div>
 
     <section class="jumbotron text-center">
         <p>You must log in to create a new article.</p>
-        <%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent border-solid border-2 border-indigo-500 rounded py-4 px-8', id: 'qsLoginBtn' %>
+        <%= button_to 'Login', 'auth/auth0', method: :post, class: 'active bg-transparent border-solid border-2 border-indigo-500 py-4 px-8', id: 'qsLoginBtn' %>
     </section>
 <% end %>
