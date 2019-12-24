@@ -28,13 +28,13 @@
             <span class="icon-bar bg-indigo-500"></span>
             <span class="icon-bar bg-indigo-500"></span>
           </button>
-          <a class="navbar-brand" href="/">My Application</a>
+          <a class="navbar-brand hover:text-indigo-500" href="/">My Application</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav md:flex items-center">
-            <li class="<%= 'active' if params[:controller] == 'home' %>"><a href="/">Home</a></li>
-            <li class="<%= 'active' if params[:controller] == 'dashboard' %>"><a href="/dashboard">My Dashboard</a></li>
-            <li class="<%= 'active' if params[:controller] == 'articles' %>"><a href="/articles">Articles</a></li>
+            <li class="<%= 'active' if params[:controller] == 'home' %>"><a class="hover:text-indigo-500" href="/">Home</a></li>
+            <li class="<%= 'active' if params[:controller] == 'dashboard' %>"><a class="hover:text-indigo-500" href="/dashboard">My Dashboard</a></li>
+            <li class="<%= 'active' if params[:controller] == 'articles' %>"><a class="hover:text-indigo-500" href="/articles">Articles</a></li>
             <a class="text-white mx-2" href="/articles/new">
               <li class="flex justify-center"><button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-4 px-8 flex items-center">Create New <ion-icon name="add" class="ml-8 text-3xl"></ion-icon></button></li>
             </a>
